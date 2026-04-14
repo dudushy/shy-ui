@@ -11,16 +11,16 @@
     "experimentalDecorators": true,
     "paths": {
       "@shy/ui": [
-        "projects/shy-ui/src/public-api.ts"
+        "./projects/shy-ui/src/public-api.ts"
       ],
       "@shy/ui/*": [
-        "projects/shy-ui/src/*"
+        "./projects/shy-ui/src/*"
       ]
     },
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "baseUrl": "."
+    "rootDir": "."
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
