@@ -10,10 +10,10 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "paths": {
-      "shy-ui": [
+      "@shy/ui": [
         "projects/shy-ui/src/public-api.ts"
       ],
-      "shy-ui/*": [
+      "@shy/ui/*": [
         "projects/shy-ui/src/*"
       ]
     },

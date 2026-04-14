@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { IconComponent } from 'shy-ui';
+import { IconComponent } from '@shy/ui';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonComponent, CardComponent, BadgeComponent, IconComponent, SpinnerComponent } from 'shy-ui';
+import { ButtonComponent, CardComponent, BadgeComponent, IconComponent, SpinnerComponent } from '@shy/ui';
 
 @Component({
   selector: 'app-examples',

@@ -6,7 +6,7 @@ A professional Angular 21 UI component library and design system.
 
 | Package | Path | Description |
 |---------|------|-------------|
-| `shy-ui` | `projects/shy-ui` | Reusable UI component library |
+| `@shy/ui` | `projects/shy-ui` | Reusable UI component library |
 | `showcase` | `projects/showcase` | Interactive component showcase app |
 
 ## Getting Started
@@ -23,7 +23,7 @@ npm start           # Serve the showcase app at http://localhost:4200
 |---------|-------------|
 | `npm start` | Serve the showcase app (dev mode) |
 | `npm run build` | Build library + showcase (production) |
-| `npm run build:lib` | Build the `shy-ui` library |
+| `npm run build:lib` | Build the `@shy/ui` library |
 | `npm run build:app` | Build the showcase app |
 | `npm run serve` | Serve showcase and open browser |
 | `npm run watch:lib` | Build library in watch mode |
@@ -35,20 +35,20 @@ In development (within this monorepo), the library is resolved via `tsconfig.jso
 To consume the library after publishing:
 
 ```bash
-npm install shy-ui
+npm install @shy/ui
 ```
 
 Then import components:
 
 ```typescript
-import { ButtonComponent, CardComponent } from 'shy-ui';
+import { ButtonComponent, CardComponent } from '@shy/ui';
 ```
 
 And include the design tokens in your global `styles.scss`:
 
 ```scss
-@use 'shy-ui/src/lib/styles/tokens';
-@use 'shy-ui/src/lib/styles/base';
+@use '@shy/ui/src/lib/styles/tokens';
+@use '@shy/ui/src/lib/styles/base';
 ```
 
 ## Components

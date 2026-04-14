@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IconComponent, ICONS } from 'shy-ui';
+import { IconComponent, ICONS } from '@shy/ui';
 
 @Component({
   selector: 'app-icons',

@@ -1,6 +1,9 @@
 {
   "name": "shy-workspace",
   "version": "0.0.0",
+  "engines": {
+    "node": "24.14.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve showcase",

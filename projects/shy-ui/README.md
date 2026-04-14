@@ -2,7 +2,7 @@
 
 Reusable Angular 21 UI component library and design system.
 
-**Package name:** `shy-ui`
+**Package name:** `@shy/ui`
 
 ## Building
 

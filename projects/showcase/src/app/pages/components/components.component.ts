@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonComponent, CardComponent, BadgeComponent, InputComponent, ModalComponent, SpinnerComponent, EmptyStateComponent } from 'shy-ui';
+import { ButtonComponent, CardComponent, BadgeComponent, InputComponent, ModalComponent, SpinnerComponent, EmptyStateComponent } from '@shy/ui';
 import { FormsModule } from '@angular/forms';
 
 @Component({
