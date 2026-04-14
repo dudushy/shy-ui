@@ -98,14 +98,7 @@
               "buildTarget": "showcase:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "projects"
-              ]
-            }
-          }
+          "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"

@@ -1,64 +1,36 @@
-# ShyUi
+# shy-ui
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+Reusable Angular 21 UI component library and design system.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+**Package name:** `shy-ui`
 
 ## Building
 
-To build the library, run:
-
 ```bash
-ng build shy-ui
+# From workspace root
+npm run build:lib
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+Build artifacts are placed in `projects/shy-ui/dist/shy-ui/`.
 
-### Publishing the Library
+## Publishing
 
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-
-   ```bash
-   cd dist/shy-ui
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+After building the library:
 
 ```bash
-ng test
+cd projects/shy-ui/dist/shy-ui
+npm publish
 ```
 
-## Running end-to-end tests
+## Running tests
 
-For end-to-end (e2e) testing, run:
+This library uses [Vitest](https://vitest.dev) as the test runner:
 
 ```bash
-ng e2e
+ng test shy-ui
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Overview](https://angular.dev/tools/cli)
+- [Angular Libraries](https://angular.dev/tools/libraries)
