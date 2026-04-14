@@ -1,0 +1,78 @@
+@use '../../styles/variables' as *;
+
+:host {
+  display: inline-flex;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: center;
+}
+
+:host(.shy-button--sm) button { padding: 0.375rem 0.75rem; font-size: var(--font-size-sm); }
+:host(.shy-button--md) button { padding: 0.5rem 1rem; font-size: var(--font-size-base); }
+:host(.shy-button--lg) button { padding: 0.75rem 1.5rem; font-size: var(--font-size-lg); }
+
+:host(.shy-button--primary) button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  &:hover:not(:disabled) { background-color: var(--color-primary-dark); }
+}
+
+:host(.shy-button--secondary) button {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  &:hover:not(:disabled) { background-color: var(--color-secondary-dark); }
+}
+
+:host(.shy-button--outline) button {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: var(--border-width) solid var(--color-primary);
+  &:hover:not(:disabled) { background-color: var(--color-primary); color: var(--color-white); }
+}
+
+:host(.shy-button--ghost) button {
+  background-color: transparent;
+  color: var(--color-gray-700);
+  &:hover:not(:disabled) { background-color: var(--color-gray-100); }
+}
+
+:host(.shy-button--danger) button {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  &:hover:not(:disabled) { filter: brightness(0.9); }
+}
+
+:host(.shy-button--disabled) button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:host(.shy-button--full) {
+  display: flex;
+  width: 100%;
+}
+
+.shy-button__spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: shy-spin 0.7s linear infinite;
+}
+
+@keyframes shy-spin {
+  to { transform: rotate(360deg); }
+}

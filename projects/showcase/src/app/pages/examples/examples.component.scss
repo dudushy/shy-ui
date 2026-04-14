@@ -1,0 +1,51 @@
+.page { max-width: 900px; }
+.page-title { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-gray-900); margin-bottom: 0.5rem; }
+.page-desc { color: var(--color-gray-500); margin-bottom: 2rem; }
+.section { margin-bottom: 3rem; }
+.section-title { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-gray-800); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+
+  &__avatar {
+    width: 5rem;
+    height: 5rem;
+    background: #ede9fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+  }
+
+  &__name { font-size: 1.125rem; font-weight: 600; color: var(--color-gray-900); }
+
+  &__email {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+  }
+
+  &__actions { display: flex; gap: 0.5rem; }
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+}
+.notif-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.notif-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; background: var(--color-gray-50); border-radius: var(--border-radius-md); }
+.notif-title { font-size: 0.875rem; font-weight: 500; color: var(--color-gray-800); }
+.notif-time { font-size: 0.75rem; color: var(--color-gray-400); margin-top: 0.125rem; }
+
+.async-demo { display: flex; flex-direction: column; gap: 1rem; }
+.async-status { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--color-gray-600); }

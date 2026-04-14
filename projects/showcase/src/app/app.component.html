@@ -1,0 +1,23 @@
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <shy-icon name="layers" size="lg" />
+      <span>shy-ui</span>
+    </div>
+    <nav class="sidebar__nav">
+      @for (item of navItems; track item.path) {
+        <a
+          class="sidebar__nav-item"
+          [routerLink]="item.path"
+          routerLinkActive="sidebar__nav-item--active"
+        >
+          <shy-icon [name]="item.icon" size="sm" />
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+  </aside>
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

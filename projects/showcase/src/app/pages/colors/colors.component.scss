@@ -1,0 +1,9 @@
+.page { max-width: 900px; }
+.page-title { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-gray-900); margin-bottom: 0.5rem; }
+.page-desc { color: var(--color-gray-500); margin-bottom: 2rem; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-gray-800); margin-bottom: 1rem; }
+.color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
+.color-card { border-radius: var(--border-radius-lg); overflow: hidden; border: 1px solid var(--border-color); }
+.color-swatch { height: 80px; display: flex; align-items: flex-end; padding: 0.5rem; font-size: 0.7rem; font-weight: 600; }
+.color-info { padding: 0.5rem; font-size: var(--font-size-sm); font-weight: 500; background: var(--color-white); color: var(--color-gray-700); }
