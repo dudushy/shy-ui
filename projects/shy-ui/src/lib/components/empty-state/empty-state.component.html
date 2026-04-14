@@ -1,0 +1,8 @@
+<div class="shy-empty-state">
+  <shy-icon [name]="icon" size="xl" class="shy-empty-state__icon" />
+  <h3 class="shy-empty-state__title">{{ title }}</h3>
+  @if (description) {
+    <p class="shy-empty-state__description">{{ description }}</p>
+  }
+  <ng-content />
+</div>

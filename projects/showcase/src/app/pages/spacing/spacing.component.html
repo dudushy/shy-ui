@@ -1,0 +1,17 @@
+<div class="page">
+  <h1 class="page-title">Spacing</h1>
+  <p class="page-desc">Consistent spacing scale used throughout the design system.</p>
+  <section class="section">
+    <div class="spacing-list">
+      @for (s of spacings; track s.name) {
+        <div class="spacing-row">
+          <div class="spacing-meta">
+            <code class="spacing-var">--{{ s.name }}</code>
+            <span class="spacing-value">{{ s.value }} · {{ s.px }}</span>
+          </div>
+          <div class="spacing-bar" [style.width]="s.value" [style.min-width]="'4px'"></div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

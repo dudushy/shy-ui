@@ -1,0 +1,14 @@
+<div class="page">
+  <h1 class="page-title">Icons</h1>
+  <p class="page-desc">All available icons in the shy-ui icon set. Icons are SVG-based and scale to any size.</p>
+  <section class="section">
+    <div class="icon-grid">
+      @for (name of iconNames; track name) {
+        <div class="icon-item">
+          <shy-icon [name]="name" size="lg" />
+          <span class="icon-name">{{ name }}</span>
+        </div>
+      }
+    </div>
+  </section>
+</div>

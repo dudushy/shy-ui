@@ -1,0 +1,19 @@
+<div class="shy-input" [class.shy-input--error]="error" [class.shy-input--disabled]="disabled">
+  @if (label) {
+    <label class="shy-input__label">{{ label }}</label>
+  }
+  <input
+    class="shy-input__field"
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
+  />
+  @if (error) {
+    <span class="shy-input__message shy-input__message--error">{{ error }}</span>
+  } @else if (hint) {
+    <span class="shy-input__message">{{ hint }}</span>
+  }
+</div>
