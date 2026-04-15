@@ -1,95 +1,106 @@
-# shy-ui
+# shy
 
-A professional Angular 21 UI component library and design system.
+Monorepo Angular 21 com biblioteca de componentes UI e utilitários.
 
-## Packages
+## Pacotes
 
-| Package | Path | Description |
-|---------|------|-------------|
-| `@shy/ui` | `projects/shy-ui` | Reusable UI component library |
-| `showcase` | `projects/showcase` | Interactive component showcase app |
+| Pacote       | Caminho              | Descrição                                  |
+| ------------ | -------------------- | ------------------------------------------ |
+| `@shy/ui`    | `projects/shy-ui`    | Biblioteca de componentes UI reutilizáveis |
+| `@shy/utils` | `projects/shy-utils` | Serviços e utilitários Angular             |
+| `showcase`   | `projects/showcase`  | App de demonstração dos componentes        |
 
-## Getting Started
+## Início rápido
 
 ```bash
 npm install
-npm run build:lib   # Build the library first
-npm start           # Serve the showcase app at http://localhost:4200
+npm start           # Serve o showcase em http://localhost:4200
 ```
+
+> Em desenvolvimento (dentro deste monorepo), as libs são resolvidas via `tsconfig.json` — não é necessário fazer build antes de servir o showcase.
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm start` | Serve the showcase app (dev mode) |
-| `npm run build` | Build library + showcase (production) |
-| `npm run build:lib` | Build the `@shy/ui` library |
-| `npm run build:app` | Build the showcase app |
-| `npm run serve` | Serve showcase and open browser |
-| `npm run watch:lib` | Build library in watch mode |
+| Comando               | Descrição                                    |
+| --------------------- | -------------------------------------------- |
+| `npm start`           | Serve o showcase (modo dev)                  |
+| `npm run build`       | Build de todas as libs + showcase (produção) |
+| `npm run build:libs`  | Build de `@shy/ui` e `@shy/utils`            |
+| `npm run build:ui`    | Build da biblioteca `@shy/ui`                |
+| `npm run build:utils` | Build da biblioteca `@shy/utils`             |
+| `npm run build:app`   | Build do showcase                            |
 
-## Using the library
+## Componentes (`@shy/ui`)
 
-In development (within this monorepo), the library is resolved via `tsconfig.json` path aliases — no pre-build required when serving the showcase.
+| Componente | Selector     | Descrição                        |
+| ---------- | ------------ | -------------------------------- |
+| **Icon**   | `<shy-icon>` | Conjunto de 30 ícones SVG inline |
 
-To consume the library after publishing:
-
-```bash
-npm install @shy/ui
-```
-
-Then import components:
+### Uso do IconComponent
 
 ```typescript
-import { ButtonComponent, CardComponent } from '@shy/ui';
+import { IconComponent } from '@shy/ui';
 ```
 
-And include the design tokens in your global `styles.scss`:
+```html
+<shy-icon name="home" /> <shy-icon name="search" label="Buscar" />
+```
+
+Ícones disponíveis: `home`, `settings`, `user`, `search`, `bell`, `check`, `x`, `alert`, `info`, `plus`, `minus`, `edit`, `trash`, `download`, `upload`, `heart`, `star`, `menu`, `chevron-right`, `chevron-down`, `mail`, `lock`, `eye`, `help`, `palette`, `type`, `grid`, `layers`, `box`, `zap`.
+
+## Utilitários (`@shy/utils`)
+
+| Export           | Descrição                                                   |
+| ---------------- | ----------------------------------------------------------- |
+| `StorageService` | Wrapper tipado para `localStorage` com get/set/remove/clear |
+
+### Uso do StorageService
+
+```typescript
+import { StorageService } from '@shy/utils';
+
+constructor(private storage: StorageService) {}
+
+this.storage.set('key', { foo: 'bar' });
+const value = this.storage.get<{ foo: string }>('key');
+this.storage.remove('key');
+```
+
+## Design Tokens
+
+Propriedades CSS definidas em `projects/shy-ui/src/lib/styles/_tokens.scss`:
+
+- **Cores** — `--primary`, `--secondary`, `--tertiary`, `--success`, `--warning`, `--danger`, `--dark`, `--medium`, `--light`, `--black`, `--white`
+- **Layout** — `--headerHeight`, `--footerHeight`, `--defaultContentHeight`, `--responsiveUnit`
+
+Para usar os estilos base no showcase ou em outro app:
 
 ```scss
 @use '@shy/ui/src/lib/styles/tokens';
 @use '@shy/ui/src/lib/styles/base';
 ```
 
-## Components
-
-| Component | Selector | Description |
-|-----------|----------|-------------|
-| **Button** | `<shy-button>` | 5 variants, 3 sizes, loading/disabled states |
-| **Card** | `<shy-card>` | Container with elevation and padding variants |
-| **Badge** | `<shy-badge>` | 7 color variants for status labels |
-| **Input** | `<shy-input>` | Form input with label, hint, error, CVA support |
-| **Modal** | `<shy-modal>` | Overlay dialog with header, body and footer slots |
-| **Spinner** | `<shy-spinner>` | Loading indicator in 3 sizes |
-| **Icon** | `<shy-icon>` | SVG icon set with 30+ icons |
-| **EmptyState** | `<shy-empty-state>` | Empty content placeholder |
-
-## Design Tokens
-
-CSS custom properties defined in `projects/shy-ui/src/lib/styles/_tokens.scss`:
-
-- **Colors** — Primary, secondary, semantic (success/warning/danger/info), neutral grays
-- **Spacing** — `--space-1` through `--space-16`
-- **Typography** — Font sizes, weights, line heights, font families
-- **Borders** — Border radius scale, border width, border color
-- **Shadows** — `--shadow-sm` through `--shadow-xl`
-- **Z-index** — Dropdown, modal, tooltip, toast layers
-- **Transitions** — Fast, normal, slow easing presets
-
-## Project Structure
+## Estrutura do projeto
 
 ```
-shy-ui/
+shy/
 ├── projects/
-│   ├── shy-ui/               # Component library
+│   ├── shy-ui/               # Biblioteca de componentes
 │   │   └── src/
 │   │       ├── lib/
-│   │       │   ├── components/   # Button, Card, Badge, Input, Modal, Spinner, Icon, EmptyState
-│   │       │   └── styles/       # SCSS tokens, variables, mixins, base reset
-│   │       └── public-api.ts     # Public exports
-│   └── showcase/             # Showcase app
+│   │       │   ├── components/
+│   │       │   │   └── icon/     # IconComponent
+│   │       │   └── styles/       # tokens, variables, mixins, base
+│   │       └── public-api.ts
+│   ├── shy-utils/            # Biblioteca de utilitários
+│   │   └── src/
+│   │       ├── lib/
+│   │       │   └── services/
+│   │       │       └── storage.service.ts
+│   │       └── public-api.ts
+│   └── showcase/             # App de demonstração
 │       └── src/app/
-│           └── pages/        # Colors, Typography, Spacing, Icons, Components, Examples
-├── .nvmrc                    # Node.js version
-└── angular.json              # Workspace configuration
+│           └── pages/
+│               └── icons/    # Página de demonstração dos ícones
+└── angular.json              # Configuração do workspace
 ```
