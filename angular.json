@@ -7,40 +7,40 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "shy-utils": {
+    "utils": {
       "projectType": "library",
-      "root": "projects/shy-utils",
-      "sourceRoot": "projects/shy-utils/src",
+      "root": "projects/shy/utils",
+      "sourceRoot": "projects/shy/utils/src",
       "prefix": "shy",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
-              "tsConfig": "projects/shy-utils/tsconfig.lib.prod.json"
+              "tsConfig": "projects/shy/utils/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/shy-utils/tsconfig.lib.json"
+              "tsConfig": "projects/shy/utils/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         }
       }
     },
-    "shy-ui": {
+    "ui": {
       "projectType": "library",
-      "root": "projects/shy-ui",
-      "sourceRoot": "projects/shy-ui/src",
+      "root": "projects/shy/ui",
+      "sourceRoot": "projects/shy/ui/src",
       "prefix": "shy",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
-              "tsConfig": "projects/shy-ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/shy/ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/shy-ui/tsconfig.lib.json"
+              "tsConfig": "projects/shy/ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
