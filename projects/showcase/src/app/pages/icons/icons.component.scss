@@ -1,19 +1,7 @@
-.page { max-width: 900px; }
-.page-title { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-gray-900); margin-bottom: 0.5rem; }
-.page-desc { color: var(--color-gray-500); margin-bottom: 2rem; }
-.section { margin-bottom: 2.5rem; }
-.icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1rem; }
-.icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 0.5rem;
-  background: var(--color-white);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
-  color: var(--color-gray-700);
-  transition: background-color 0.15s;
-  &:hover { background: #ede9fe; color: var(--color-primary); }
+@use '@shy/ui/src/lib/styles' as *;
+
+:host {
+  display: block;
+  color: $primary;
+  padding: calc(var(--responsiveUnit) * 1);
 }
-.icon-name { font-size: 0.7rem; text-align: center; color: inherit; }

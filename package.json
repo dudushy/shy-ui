@@ -16,6 +16,9 @@
     "serve": "ng serve showcase --open"
   },
   "private": true,
+  "workspaces": [
+    "projects/shy-ui"
+  ],
   "packageManager": "npm@11.11.0",
   "dependencies": {
     "@angular/common": "^21.2.0",
