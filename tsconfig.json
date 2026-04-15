@@ -10,12 +10,10 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "paths": {
-      "@shy/ui": [
-        "./projects/shy-ui/src/public-api.ts"
-      ],
-      "@shy/ui/*": [
-        "./projects/shy-ui/src/*"
-      ]
+      "@shy/ui": ["./projects/shy-ui/src/public-api.ts"],
+      "@shy/ui/*": ["./projects/shy-ui/src/*"],
+      "@shy/utils": ["./projects/shy-utils/src/public-api.ts"],
+      "@shy/utils/*": ["./projects/shy-utils/src/*"]
     },
     "importHelpers": true,
     "target": "ES2022",
@@ -31,16 +29,13 @@
   "files": [],
   "references": [
     {
+      "path": "./projects/shy-utils/tsconfig.lib.json"
+    },
+    {
       "path": "./projects/shy-ui/tsconfig.lib.json"
     },
     {
-      "path": "./projects/shy-ui/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/showcase/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/showcase/tsconfig.spec.json"
     }
   ]
 }

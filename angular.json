@@ -7,6 +7,26 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "shy-utils": {
+      "projectType": "library",
+      "root": "projects/shy-utils",
+      "sourceRoot": "projects/shy-utils/src",
+      "prefix": "shy",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shy-utils/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/shy-utils/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
     "shy-ui": {
       "projectType": "library",
       "root": "projects/shy-ui",
@@ -24,12 +44,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "projects/shy-ui/tsconfig.spec.json"
-          }
         }
       }
     },
@@ -96,9 +110,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
         }
       }
     }
