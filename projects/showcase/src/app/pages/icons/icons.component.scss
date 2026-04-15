@@ -5,3 +5,23 @@
   color: $primary;
   padding: calc(var(--responsiveUnit) * 1);
 }
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 16px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-name {
+  font-size: 11px;
+  text-align: center;
+  word-break: break-all;
+  opacity: 0.7;
+}

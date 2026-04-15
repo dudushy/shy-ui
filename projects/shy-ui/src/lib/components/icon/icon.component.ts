@@ -4,13 +4,11 @@ import { ICONS } from './icons';
 
 @Component({
   selector: 'shy-icon',
-  standalone: true,
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss',
 })
 export class IconComponent implements OnChanges {
   @Input({ required: true }) name!: string;
-  @Input() label?: string;
 
   svgContent!: SafeHtml;
 

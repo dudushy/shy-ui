@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IconComponent } from '@shy/ui';
+import { IconComponent, ICONS } from '@shy/ui';
 import { DebugService } from '@shy/utils';
 
 @Component({
@@ -9,6 +9,8 @@ import { DebugService } from '@shy/utils';
   styleUrl: './icons.component.scss',
 })
 export class IconsComponent implements OnInit, OnDestroy {
+  iconNames = Object.keys(ICONS);
+
   constructor(private debugService: DebugService) {
     this.debugService.log(this);
   }

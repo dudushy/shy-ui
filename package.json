@@ -12,7 +12,8 @@
     "build:ui": "ng build shy-ui",
     "build:utils": "ng build shy-utils",
     "build:lib": "ng build shy-ui",
-    "build:app": "ng build showcase"
+    "build:app": "ng build showcase",
+    "generate:icons": "node scripts/generate-icons.mjs"
   },
   "private": true,
   "workspaces": [
