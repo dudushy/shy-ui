@@ -13,8 +13,8 @@ Monorepo Angular 21 com biblioteca de componentes UI e utilitários.
 ## Início rápido
 
 ```bash
-npm install
-npm start           # Serve o showcase em http://localhost:4200
+npm ci # Instala as dependências
+npm start # Serve o showcase em http://localhost:4200
 ```
 
 > Em desenvolvimento (dentro deste monorepo), as libs são resolvidas via `tsconfig.json` — não é necessário fazer build antes de servir o showcase.
