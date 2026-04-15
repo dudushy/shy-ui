@@ -1,21 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { IconComponent } from '@shy/ui';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, IconComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  navItems = [
-    { path: 'colors', label: 'Colors', icon: 'palette' },
-    { path: 'typography', label: 'Typography', icon: 'type' },
-    { path: 'spacing', label: 'Spacing', icon: 'grid' },
-    { path: 'icons', label: 'Icons', icon: 'star' },
-    { path: 'components', label: 'Components', icon: 'layers' },
-    { path: 'examples', label: 'Examples', icon: 'zap' },
-  ];
+export class AppComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
 }

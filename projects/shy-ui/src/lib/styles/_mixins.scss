@@ -1,47 +1,41 @@
 @use 'variables' as *;
 
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@mixin fixedHeight($height) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
 }
 
-@mixin flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@mixin fixedWidth($width) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
 }
 
-@mixin text-ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@mixin fixedSquare($size) {
+  @include fixedWidth($size);
+  @include fixedHeight($size);
 }
 
-@mixin visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+@mixin square($size) {
+  width: $size;
+  height: $size;
 }
 
-@mixin responsive-sm {
-  @media (min-width: 640px) { @content; }
+@mixin allVendors($property, $args...) {
+  @each $prefix in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$prefix + $property}: $args;
+  }
 }
 
-@mixin responsive-md {
-  @media (min-width: 768px) { @content; }
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
 }
 
-@mixin responsive-lg {
-  @media (min-width: 1024px) { @content; }
-}
-
-@mixin responsive-xl {
-  @media (min-width: 1280px) { @content; }
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
 }

@@ -1,23 +1,17 @@
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar__brand">
-      <shy-icon name="layers" size="lg" />
-      <span>@shy/ui</span>
-    </div>
-    <nav class="sidebar__nav">
-      @for (item of navItems; track item.path) {
-        <a
-          class="sidebar__nav-item"
-          [routerLink]="item.path"
-          routerLinkActive="sidebar__nav-item--active"
-        >
-          <shy-icon [name]="item.icon" size="sm" />
-          <span>{{ item.label }}</span>
-        </a>
-      }
-    </nav>
-  </aside>
-  <main class="content">
-    <router-outlet />
-  </main>
-</div>
+<main>
+  <header>
+    <a href="https://github.com/dudushy/shy-ui" target="_blank">@shy/ui</a>
+  </header>
+
+  <div id="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer>
+    <h2>
+      Made with <span id="heart">&#10084;</span>
+      <br />
+      by <a href="https://github.com/dudushy" target="_blank">dudushy</a>
+    </h2>
+  </footer>
+</main>
