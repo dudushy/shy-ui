@@ -2,7 +2,7 @@
 
 # Compiled output
 /dist
-/projects/shy-ui/dist
+*/dist
 /tmp
 /out-tsc
 /bazel-out
