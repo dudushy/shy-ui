@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 import { SnackbarPosition } from '../../types/snackbar/snackbar.type';
 
@@ -17,6 +17,8 @@ export class SnackbarComponent implements OnDestroy {
 
   private timer?: ReturnType<typeof setTimeout>;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   show(opts?: { position?: SnackbarPosition; delay?: number; text?: string }): void {
     if (opts?.position !== undefined) this.position = opts.position;
     if (opts?.delay !== undefined) this.dismissDelay = opts.delay;
@@ -24,6 +26,7 @@ export class SnackbarComponent implements OnDestroy {
 
     clearTimeout(this.timer);
     this.visible = true;
+    this.cdr.markForCheck();
 
     if (this.dismissDelay > 0) {
       this.timer = setTimeout(() => this.dismiss(), this.dismissDelay);
@@ -32,6 +35,7 @@ export class SnackbarComponent implements OnDestroy {
 
   dismiss(): void {
     this.visible = false;
+    this.cdr.markForCheck();
     clearTimeout(this.timer);
   }
 

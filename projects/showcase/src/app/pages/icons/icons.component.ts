@@ -1,17 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IconComponent, ICONS } from '@shy/ui';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { IconComponent, ICONS, SnackbarComponent, SnackbarService } from '@shy/ui';
 import { DebugService } from '@shy/utils';
 
 @Component({
   selector: 'app-icons',
-  imports: [IconComponent],
+  imports: [IconComponent, SnackbarComponent],
   templateUrl: './icons.component.html',
   styleUrl: './icons.component.scss',
 })
 export class IconsComponent implements OnInit, OnDestroy {
+  @ViewChild('snackbar') snackbar!: SnackbarComponent;
+
   iconNames = Object.keys(ICONS).filter((name) => !name.endsWith('-filled'));
 
-  constructor(private debugService: DebugService) {
+  constructor(
+    private debugService: DebugService,
+    private snackbarService: SnackbarService,
+  ) {
     this.debugService.log(this);
   }
 
@@ -21,5 +26,14 @@ export class IconsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.debugService.log(this);
+  }
+
+  async copyIcon(name: string): Promise<void> {
+    await navigator.clipboard.writeText(`<shy-icon>${name}</shy-icon>`);
+    this.snackbarService.show({
+      element: this.snackbar,
+      text: `Copiado: <shy-icon>${name}</shy-icon>`,
+      delay: 2500,
+    });
   }
 }

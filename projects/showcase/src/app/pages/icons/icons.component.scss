@@ -28,6 +28,12 @@
     border-style: solid;
     height: calc(var(--responsiveUnit) * 6);
     width: calc(var(--responsiveUnit) * 5);
+    cursor: pointer;
+    @include allVendors(transition, all 250ms ease-in-out);
+
+    &:hover {
+      background-color: color.adjust($danger, $lightness: 20%);
+    }
 
     shy-icon {
       --shyIconSize: calc(var(--responsiveUnit) * 2);
@@ -39,4 +45,11 @@
       text-align: center;
     }
   }
+}
+
+shy-snackbar {
+  --shySnackbarBg: #{$success};
+  --shySnackbarColor: #{$white};
+  --shySnackbarMinWidth: calc(var(--responsiveUnit) * 30);
+  --shySnackbarMaxWidth: calc(var(--responsiveUnit) * 40);
 }
