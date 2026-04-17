@@ -7,17 +7,18 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve showcase",
-    "build": "npm run build:lib && npm run build:app",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "build": "npm run build:libs && npm run build:app",
+    "build:libs": "npm run build:ui && npm run build:utils",
+    "build:ui": "ng build shy-ui",
+    "build:utils": "ng build shy-utils",
     "build:lib": "ng build shy-ui",
     "build:app": "ng build showcase",
-    "watch:lib": "ng build shy-ui --watch",
-    "serve": "ng serve showcase --open"
+    "generate:icons": "node scripts/generate-icons.mjs"
   },
   "private": true,
   "workspaces": [
-    "projects/shy-ui"
+    "projects/shy/ui",
+    "projects/shy/utils"
   ],
   "packageManager": "npm@11.11.0",
   "dependencies": {
@@ -34,10 +35,8 @@
     "@angular/build": "^21.2.7",
     "@angular/cli": "^21.2.7",
     "@angular/compiler-cli": "^21.2.0",
-    "jsdom": "^28.0.0",
     "ng-packagr": "^21.2.0",
     "prettier": "^3.8.1",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+    "typescript": "~5.9.2"
   }
 }
