@@ -206,3 +206,60 @@ shy/
 │   └── generate-icons.mjs         # Gera icons.ts a partir dos SVGs
 └── angular.json
 ```
+
+---
+
+## CI/CD
+
+O repositório usa dois workflows do GitHub Actions, ativados por push e pull request para a branch `prod`.
+
+### Workflows
+
+| Arquivo                                 | Responsabilidade                           |
+| --------------------------------------- | ------------------------------------------ |
+| `.github/workflows/deploy-showcase.yml` | Build e deploy da showcase no GitHub Pages |
+| `.github/workflows/publish.yml`         | Build e publicação das libs no npm         |
+
+### Comportamento por evento
+
+| Evento                  | Build showcase | Deploy gh-pages | Build libs | Publicar npm |
+| ----------------------- | :------------: | :-------------: | :--------: | :----------: |
+| `pull_request` → `prod` |       ✅       |       ❌        |     ✅     |      ❌      |
+| `push` → `prod`         |       ✅       |       ✅        |     ✅     |    ✅ \*     |
+
+> \* A publicação no npm só ocorre quando a versão do pacote ainda não existe no registry.
+
+### GitHub Pages
+
+A showcase é buildada com `--base-href /<nome-do-repositório>/` e publicada na branch `gh-pages` via `peaceiris/actions-gh-pages`.
+
+**Configuração necessária no repositório:**
+
+1. Acesse **Settings → Pages**
+2. Em **Source**, selecione **Deploy from a branch**
+3. Escolha a branch `gh-pages` e a pasta `/ (root)`
+4. Salve — a URL ficará em `https://<usuario>.github.io/<repositório>/`
+
+### Publicação no npm
+
+Cada lib (`@shy/ui` e `@shy/utils`) é publicada individualmente a partir do diretório de saída do ng-packagr (`dist/shy-ui` e `dist/shy-utils`). Antes de publicar, o workflow verifica se a versão já existe no registry, evitando erros de republicação.
+
+Para publicar uma nova versão, basta atualizar o campo `version` no `package.json` da lib correspondente:
+
+- `projects/shy/ui/package.json` → para `@shy/ui`
+- `projects/shy/utils/package.json` → para `@shy/utils`
+
+### Secrets necessários
+
+| Secret      | Onde configurar                                 | Finalidade                        |
+| ----------- | ----------------------------------------------- | --------------------------------- |
+| `NPM_TOKEN` | **Settings → Secrets → Actions** do repositório | Autenticação para publicar no npm |
+
+> O `GITHUB_TOKEN` já está disponível automaticamente no GitHub Actions e é usado para o deploy no GitHub Pages.
+
+**Como gerar o `NPM_TOKEN`:**
+
+1. Acesse [npmjs.com](https://www.npmjs.com) e faça login
+2. Vá em **Access Tokens → Generate New Token → Classic Token**
+3. Escolha o tipo **Automation**
+4. Copie o token e adicione-o como secret no repositório GitHub

@@ -9,9 +9,8 @@
     "start": "ng serve showcase",
     "build": "npm run build:libs && npm run build:app",
     "build:libs": "npm run build:ui && npm run build:utils",
-    "build:ui": "ng build shy-ui",
-    "build:utils": "ng build shy-utils",
-    "build:lib": "ng build shy-ui",
+    "build:ui": "ng build ui",
+    "build:utils": "ng build utils",
     "build:app": "ng build showcase",
     "generate:icons": "node scripts/generate-icons.mjs"
   },
