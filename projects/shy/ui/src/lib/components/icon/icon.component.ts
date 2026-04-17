@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ICONS } from './icons';
 
@@ -6,9 +6,6 @@ import { ICONS } from './icons';
   selector: 'shy-icon',
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss',
-  host: {
-    '[style.--hover-delay]': 'hoverFillDelay + "ms"',
-  },
 })
 export class IconComponent implements AfterViewInit {
   @Input() hoverFill = false;
@@ -20,7 +17,10 @@ export class IconComponent implements AfterViewInit {
   svgHoverContent?: SafeHtml;
   isHovered = false;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngAfterViewInit(): void {
     const name = this.iconNameRef.nativeElement.textContent?.trim() ?? '';
@@ -33,16 +33,16 @@ export class IconComponent implements AfterViewInit {
         this.svgHoverContent = this.sanitizer.bypassSecurityTrustHtml(filledSvg);
       }
     }
+
+    this.cdr.detectChanges();
   }
 
-  @HostListener('mouseenter')
   onMouseEnter(): void {
     if (this.hoverFill && this.svgHoverContent) {
       this.isHovered = true;
     }
   }
 
-  @HostListener('mouseleave')
   onMouseLeave(): void {
     this.isHovered = false;
   }

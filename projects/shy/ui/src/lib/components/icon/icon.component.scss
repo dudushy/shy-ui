@@ -2,14 +2,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  width: var(--shyIconSize, 1em);
-  height: var(--shyIconSize, 1em);
   color: inherit;
 }
 
 .icon-name {
   display: none;
+}
+
+.icon-wrapper {
+  position: relative;
+  width: var(--shyIconSize, 1em);
+  height: var(--shyIconSize, 1em);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-layer {
