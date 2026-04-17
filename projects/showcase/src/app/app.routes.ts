@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'icons', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
+  { path: 'home', loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent) },
   { path: 'icons', loadComponent: () => import('./pages/icons/icons.component').then((m) => m.IconsComponent) },
 
-  { path: '**', redirectTo: 'icons', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -17,8 +17,8 @@
   },
   "private": true,
   "workspaces": [
-    "projects/shy-ui",
-    "projects/shy-utils"
+    "projects/shy/ui",
+    "projects/shy/utils"
   ],
   "packageManager": "npm@11.11.0",
   "dependencies": {

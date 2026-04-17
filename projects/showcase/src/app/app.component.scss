@@ -22,13 +22,16 @@ header {
   position: fixed;
   top: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: $medium;
   @include fixedWidth(100%);
   @include fixedHeight(var(--headerHeight));
 
-  a {
+  > a {
+    flex: 1;
+    display: flex;
+    align-items: center;
     margin: 0;
     font-size: calc(var(--responsiveUnit) * 2);
     font-family: sans-serif;
@@ -39,6 +42,36 @@ header {
 
     &:hover {
       color: $white;
+    }
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--responsiveUnit) * 0.5);
+    padding: calc(var(--responsiveUnit) * 0.5);
+    width: 100%;
+    background: $primary;
+
+    a {
+      font-size: calc(var(--responsiveUnit) * 1);
+      font-family: sans-serif;
+      color: $white;
+      text-decoration: none;
+      @include allVendors(transition, all 250ms ease-in-out);
+
+      &:hover {
+        color: $success;
+      }
+
+      &.active {
+        color: $warning;
+      }
+
+      &.active:hover {
+        color: $danger;
+      }
     }
   }
 }
