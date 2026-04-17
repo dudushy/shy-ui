@@ -1,7 +1,8 @@
 <div class="icons-grid">
   @for (name of iconNames; track name) {
     <div class="icon-item">
-      <shy-icon [name]="name" />
+      <shy-icon [hoverFill]="true" [hoverFillDelay]="200">{{ name }}</shy-icon>
+
       <span class="icon-name">{{ name }}</span>
     </div>
   }

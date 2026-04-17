@@ -9,7 +9,7 @@ import { DebugService } from '@shy/utils';
   styleUrl: './icons.component.scss',
 })
 export class IconsComponent implements OnInit, OnDestroy {
-  iconNames = Object.keys(ICONS);
+  iconNames = Object.keys(ICONS).filter((name) => !name.endsWith('-filled'));
 
   constructor(private debugService: DebugService) {
     this.debugService.log(this);
