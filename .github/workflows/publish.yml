@@ -29,12 +29,12 @@ jobs:
       - name: Publicar @shy/ui no npm
         if: github.event_name == 'push'
         run: |
-          PKG_NAME=$(node -p "require('./dist/shy-ui/package.json').name")
-          PKG_VERSION=$(node -p "require('./dist/shy-ui/package.json').version")
+          PKG_NAME=$(node -p "require('./projects/shy/ui/dist/shy-ui/package.json').name")
+          PKG_VERSION=$(node -p "require('./projects/shy/ui/dist/shy-ui/package.json').version")
           if npm show "$PKG_NAME@$PKG_VERSION" version > /dev/null 2>&1; then
             echo "Versão $PKG_VERSION de $PKG_NAME já publicada, pulando."
           else
-            npm publish dist/shy-ui --access public
+            npm publish projects/shy/ui/dist/shy-ui --access public
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -42,12 +42,12 @@ jobs:
       - name: Publicar @shy/utils no npm
         if: github.event_name == 'push'
         run: |
-          PKG_NAME=$(node -p "require('./dist/shy-utils/package.json').name")
-          PKG_VERSION=$(node -p "require('./dist/shy-utils/package.json').version")
+          PKG_NAME=$(node -p "require('./projects/shy/utils/dist/shy-utils/package.json').name")
+          PKG_VERSION=$(node -p "require('./projects/shy/utils/dist/shy-utils/package.json').version")
           if npm show "$PKG_NAME@$PKG_VERSION" version > /dev/null 2>&1; then
             echo "Versão $PKG_VERSION de $PKG_NAME já publicada, pulando."
           else
-            npm publish dist/shy-utils --access public
+            npm publish projects/shy/utils/dist/shy-utils --access public
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
